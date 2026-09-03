@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Age Calculator";
+}
+@model AgeThisYear
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <h1 class="display-4">Age Calculator</h1>
+            <form asp-action="Index" method="post">
+                <div asp-validation-summary="All"> </div>
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label"> Please enter your name:</label>
+                    <input asp-for="Name" class="form-control"/>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Birthday" class="form-label"> Please enter your birthday in the mm-dd-yyyy format:</label>
+                    <input asp-for="Birthday" class="form-control" />
+                </div>
+                @if (ViewBag.Name != null) //Ensures Name is not null before displaying it
+                    {
+                    <p>@Model.Name you are @ViewBag.FV.ToString() years old. </p>
+                    }
+
+                <button type="submit" class="btn btn-primary">Calculate</button>
+                <a asp-action="Index" class="btn btn-primary">Clear</a>
+            </form>
+        </div>
+    </div>
+</div>
