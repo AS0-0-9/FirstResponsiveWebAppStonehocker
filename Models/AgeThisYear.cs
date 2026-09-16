@@ -9,11 +9,8 @@ namespace FirstResponsiveWebAppStonehocker.Models
 
         public DateOnly? Birthday { get; set; }
 
-        DateOnly Today = DateOnly.FromDateTime(DateTime.Today); //Gets todays date and makes it DateOnly
-
-        public int? CalculateAge()
+        public int? CalculateAge(DateOnly Today)
         {
-
             int age = Today.Year - Birthday.Value.Year;
             if (Birthday > Today.AddYears(-age)) //Checks to see if Birthday has happened yet this year
             {
